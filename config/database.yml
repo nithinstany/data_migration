@@ -1,0 +1,24 @@
+development:
+  primary:
+    adapter: mysql2
+    encoding: utf8
+    database: ayuslabnewash_1
+    pool: 5
+    username: root
+    password:  
+    host: 127.0.0.1
+    socket: /var/run/mysqld/mysqld.sock
+    variables:
+      sql_mode: TRADITIONAL
+  backup_db:
+    adapter: mysql2
+    encoding: utf8
+    database: backup_db_copy
+    pool: 5
+    username: root
+    password:  
+    replica: true
+    host: 127.0.0.1
+    socket: /var/run/mysqld/mysqld.sock
+    variables:
+      sql_mode: TRADITIONAL
