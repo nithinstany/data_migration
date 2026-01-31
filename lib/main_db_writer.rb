@@ -4,11 +4,7 @@ module MainDbWriter
         "SELECT * FROM #{table} WHERE id = #{attrs['id']}"
       ).to_a
 
-
-      
-
       if record.blank?
-
         final_attrs = attrs.transform_values! do |v|
           case v
           when Date
