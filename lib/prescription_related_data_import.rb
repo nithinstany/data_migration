@@ -5,7 +5,7 @@ class PrescriptionRelatedDataImport
 
     last_prescription_id = 0
 
-    batch_size = 10
+    batch_size = 100
     loops = (prescription_count.to_f / batch_size).ceil
 
     (0..loops).each do |loop|

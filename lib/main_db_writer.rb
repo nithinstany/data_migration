@@ -1,5 +1,7 @@
 module MainDbWriter
   def self.upsert(table, attrs)
+    if attrs.keys.include?('id') && !attrs['id'].blank?
+
       record = MainDbBase.connection.exec_query(
         "SELECT * FROM #{table} WHERE id = #{attrs['id']}"
       ).to_a
@@ -23,6 +25,7 @@ module MainDbWriter
         MainDbBase.connection.execute(
           "INSERT INTO #{table} (#{columns}) VALUES (#{values})"
         )
-      end 
+      end
+    end 
   end
 end

@@ -1,7 +1,7 @@
 class VenueDataImport
 
   def self.import
-  	venue_record = "974638072"
+  	venue_record = "1604"
 
   	PatientRelatedDataImport.import(venue_record)
   	PrescriptionRelatedDataImport.import(venue_record)
