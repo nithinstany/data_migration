@@ -22,7 +22,7 @@ class PrescriptionRelatedDataImport
         last_prescription_id = prescription['id']
 
         ['prescribed_tests', 'prescription_samples', 'prescription_packages', 'prescription_bill_item_masters', 'prescription_images', 'miscellaneous_images', 'prescription_sample_precribed_tests', 'outbound_logs', 'prescription_extra_fields', 'turn_around_times'].each do |prescription_has_table|
-          BackupReader.fetch(table, { prescription_id: prescription['id'] }).each do |record|
+          BackupReader.fetch(prescription_has_table, { prescription_id: prescription['id'] }).each do |record|
             MainDbWriter.upsert(prescription_has_table, record)
 
             if prescription_has_table == "prescribed_tests"
